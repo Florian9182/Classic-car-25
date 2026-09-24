@@ -1,0 +1,162 @@
+<div class="wrap">
+  <header class="top"><img src="banner.jpg" alt="Classic Car 25" width="1200" height="283"><div class="meta" id="m-scan">—</div><span id="m-fx" hidden></span><button type="button" class="gear" id="open-tools" aria-label="Outils et paramètres" title="Outils et paramètres"><svg viewBox="0 0 32 32" width="24" height="24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20.5v-2.2c0-.9.6-1.6 1.4-1.8l4.3-1 3.6-3.4c.6-.5 1.3-.8 2.1-.8h5.3c.9 0 1.7.4 2.3 1.1l2.6 3 3.2.7c1 .2 1.7 1.1 1.7 2.1v2.3c0 .6-.4 1-1 1h-1.6"/><path d="M8.6 21.5h12.3"/><path d="M3 20.5c0 .6.4 1 1 1h1.1"/><circle cx="7" cy="21.5" r="2.4"/><circle cx="23" cy="21.5" r="2.4"/><path d="M11.5 15.2h11.3"/></svg></button></header>
+
+  <nav class="tabs" role="tablist">
+    <button role="tab" id="t-opp" aria-selected="true" data-tab="opp">Affaires</button>
+  </nav>
+
+  <section id="p-opp">
+    <div class="relance">
+      <p class="quip" id="quip">Un clic, et ton banquier commence à t'appeler « Monsieur ».</p>
+      <button type="button" class="btn big" id="btn-scan"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.64-6.36"/><path d="M21 3v6h-6"/></svg><span>Relancer la recherche</span></button>
+      <p class="scanstate" id="scan-state"></p>
+    </div>
+    <div class="fbar" id="fbar">
+      <div class="dd"><button type="button" class="ddb" data-dd="pays" aria-expanded="false"><span id="lb-pays">Pays</span><i>▾</i></button>
+        <div class="ddp" id="dd-pays" hidden></div></div>
+      <div class="dd"><button type="button" class="ddb" data-dd="marque" aria-expanded="false"><span id="lb-marque">Marque</span><i>▾</i></button>
+        <div class="ddp" id="dd-marque" hidden></div></div>
+      <div class="dd"><button type="button" class="ddb" data-dd="seg" aria-expanded="false"><span id="lb-seg">Segment</span><i>▾</i></button>
+        <div class="ddp" id="dd-seg" hidden></div></div>
+      <div class="dd"><button type="button" class="ddb" data-dd="prix" aria-expanded="false"><span id="lb-prix">Prix max</span><i>▾</i></button>
+        <div class="ddp" id="dd-prix" hidden>
+          <label for="f-prixmax">Prix d'achat maximum (€)</label>
+          <input id="f-prixmax" type="number" inputmode="numeric" min="0" step="1000" placeholder="ex. 80000">
+          <div class="ddact"><button type="button" class="btn ghost" data-clear="prixmax">Effacer</button><button type="button" class="btn" data-ok="prixmax">Appliquer</button></div>
+        </div></div>
+      <div class="dd"><button type="button" class="ddb" data-dd="km" aria-expanded="false"><span id="lb-km">Km max</span><i>▾</i></button>
+        <div class="ddp" id="dd-km" hidden>
+          <label for="f-kmmax">Kilométrage maximum</label>
+          <input id="f-kmmax" type="number" inputmode="numeric" min="0" step="5000" placeholder="ex. 80000">
+          <div class="ddact"><button type="button" class="btn ghost" data-clear="kmmax">Effacer</button><button type="button" class="btn" data-ok="kmmax">Appliquer</button></div>
+        </div></div>
+      <div class="dd"><button type="button" class="ddb" data-dd="vend" aria-expanded="false"><span id="lb-vend">Vendeur</span><i>▾</i></button>
+        <div class="ddp" id="dd-vend" hidden>
+          <label class="opt"><input type="checkbox" id="f-pro"> Professionnels seulement</label>
+          <label class="opt"><input type="checkbox" id="f-tva"> TVA récupérable seulement</label>
+        </div></div>
+      <div class="dd dd-r"><button type="button" class="ddb" data-dd="tri" aria-expanded="false" aria-label="Tri et affichage"><span>Tri</span><i>▾</i></button>
+        <div class="ddp" id="dd-tri" hidden>
+          <div class="ddt">Trier par</div>
+          <label class="opt"><input type="radio" name="f-sort" value="marge" checked> Marge</label>
+          <label class="opt"><input type="radio" name="f-sort" value="roi"> Rentabilité</label>
+          <label class="opt"><input type="radio" name="f-sort" value="prix"> Prix</label>
+          <label class="opt"><input type="radio" name="f-sort" value="conf"> Fiabilité</label>
+          <div class="ddt">Afficher</div>
+          <label class="opt"><input type="checkbox" id="f-go" checked> Marge ≥ 5 000 €</label>
+          <label class="opt"><input type="checkbox" id="f-fiable"> Estimations fiables</label>
+          <label class="opt"><input type="checkbox" id="f-hide"> Masquer les écartées</label>
+        </div></div>
+    </div>
+
+    <div class="list" id="list"><div class="empty">Chargement des opportunités…</div></div>
+  </section>
+
+
+</div>
+<div class="drawer" id="drawer" hidden role="dialog" aria-modal="true" aria-label="Outils et paramètres">
+  <div class="drawer-in">
+    <div class="drawer-head">
+      <nav class="tabs subtabs" role="tablist">
+        <button role="tab" aria-selected="false" data-tab="calc">Calculateur</button>
+        <button role="tab" aria-selected="false" data-tab="rules">Méthode</button>
+      </nav>
+      <button type="button" class="close" id="close-tools" aria-label="Fermer">✕</button>
+    </div>
+  <section id="p-calc" hidden>
+    <div class="calc">
+      <form id="form" autocomplete="off">
+        <fieldset><legend>Annonce</legend>
+          <div class="grid2">
+            <label>Pays d'achat<select id="c-pays"><option value="DE">Allemagne</option><option value="AT">Autriche</option><option value="BE">Belgique</option><option value="LU">Luxembourg</option><option value="NL">Pays-Bas</option><option value="IT">Italie</option><option value="ES">Espagne</option><option value="CH">Suisse</option><option value="JP">Japon</option></select></label>
+            <label>Véhicule<input id="c-modele" type="text" value="Mercedes-AMG C63 berline"></label>
+            <label>Prix affiché<input id="c-prix" type="number" step="1" value="39950"></label>
+            <label>Devise<select id="c-devise"><option>EUR</option><option>CHF</option><option>JPY</option></select></label>
+            <label>TVA vendeur<select id="c-tva">
+              <option value="deductible">Pro, TVA déductible (MwSt. ausweisbar)</option>
+              <option value="marge">Régime de marge / particulier</option>
+              <option value="import">Import hors UE (Japon)</option></select></label>
+            <label>1re immatriculation<input id="c-immat" type="month" value="2019-06"></label>
+            <label>Kilométrage<input id="c-km" type="number" value="57075"></label>
+          </div>
+        </fieldset>
+        <fieldset><legend>Malus</legend>
+          <div class="grid2">
+            <label>CO₂ g/km<input id="c-co2" type="number" value="209"><span class="hint">NEDC avant mars 2020, WLTP après</span></label>
+            <label>Masse en ordre de marche (kg)<input id="c-masse" type="number" value="1730"></label>
+            <label>Motorisation<select id="c-energie"><option value="ICE">Thermique</option><option value="HEV">Hybride simple</option><option value="PHEV">Hybride rechargeable (&gt;50 km)</option><option value="EV">Électrique</option></select></label>
+            <label>Malus imposé (optionnel)<input id="c-malusManuel" type="number" placeholder="calcul auto"><span class="hint">Saisir si le simulateur ANTS donne un autre montant</span></label>
+          </div>
+        </fieldset>
+        <fieldset><legend>Frais d'import (HT)</legend>
+          <div class="grid2">
+            <label>Transport<input id="c-transport" type="number" value="900"></label>
+            <label>Agent / export<input id="c-agent" type="number" value="0"></label>
+            <label>Transitaire, port, dédouanement<input id="c-transit" type="number" value="0"></label>
+            <label>Droits de douane %<input id="c-douane" type="number" step="0.1" value="0"><span class="hint">UE 0 · CH/JP 0 si origine prouvée, sinon 10</span></label>
+            <label>Homologation, COC, RTI<input id="c-homologation" type="number" value="150"></label>
+            <label>Préparation, remise en état<input id="c-prep" type="number" value="800"></label>
+            <label>Frais d'immatriculation<input id="c-admin" type="number" value="300"></label>
+          </div>
+        </fieldset>
+        <fieldset><legend>Revente en France</legend>
+          <div class="grid2">
+            <label>Prix de revente TTC visé<input id="c-prixFR" type="number" value="55500"></label>
+            <label>Marge nette cible<input id="c-cible" type="number" value="5000"></label>
+            <label>1 CHF en €<input id="c-fxCHF" type="number" step="0.0001" value="1.0646"></label>
+            <label>1 ¥ en €<input id="c-fxJPY" type="number" step="0.000001" value="0.005550"></label>
+          </div>
+        </fieldset>
+        <div class="actions"><button type="button" class="btn ghost" id="c-defaults">Remettre les frais par défaut du pays</button></div>
+      </form>
+      <aside class="result" aria-live="polite">
+        <div class="verdict"><span>Marge nette estimée</span><b id="r-marge">—</b><span id="r-verdict">—</span></div>
+        <table class="bd" id="r-table"></table>
+        <div class="alerts" id="r-alerts"></div>
+      </aside>
+    </div>
+  </section>
+
+  <section id="p-rules" hidden>
+    <div class="rules">
+      <h2>Comment la marge est calculée</h2>
+      <p><b>Marge nette</b> = chiffre d'affaires hors TVA − prix d'achat HT − droits de douane − frais d'import − malus. La TVA d'import et la TVA sur les frais sont récupérées par CC25, donc neutres (hors trésorerie).</p>
+      <ul>
+        <li><b>Pays de l'UE, vendeur pro avec TVA déductible</b> (« inkl. MwSt. ») : achat HT (prix ÷ 1 + TVA locale : 19 % DE, 20 % AT, 21 % BE/NL/ES, 22 % IT, 17 % LU), revente avec TVA 20 % sur le prix total.</li>
+        <li><b>Pays de l'UE, régime de marge ou particulier</b> : achat au prix affiché, revente en régime de marge (TVA 20 % sur la seule marge).</li>
+        <li><b>Prix de revente France</b> : chaque annonce française comparable (même modèle, même puissance, carrosserie, année ±1) est ramenée au kilométrage et à l'année de la voiture, on prend la médiane des plus proches, puis on retire 3 % de négociation.</li>
+        <li><b>Suisse</b> : TVA suisse 8,1 % déduite si vendeur pro qui exporte ; 0 % de douane si l'origine UE est prouvée (voiture fabriquée en UE), sinon 10 % ; TVA import 20 % récupérable.</li>
+        <li><b>Japon</b> : droits 10 % sur la valeur CAF par défaut (0 % si l'origine japonaise est prouvée au titre de l'accord UE-Japon), TVA import 20 % récupérable, réception à titre isolé (RTI) à la DREAL et mise aux normes.</li>
+      </ul>
+      <h2>Malus sur un véhicule importé</h2>
+      <p>On applique le barème de l'<b>année de la 1re immatriculation à l'étranger</b>, puis une décote selon l'âge du véhicule. Aucun malus pour une 1re immatriculation avant 2015 ou au-delà de 180 mois. Le malus au poids ne touche que les véhicules immatriculés à partir de 2022.</p>
+      <div class="tbl"><table>
+        <tr><th>Âge (mois)</th><th>≤3</th><th>≤6</th><th>≤9</th><th>≤12</th><th>≤18</th><th>≤24</th><th>≤36</th><th>≤48</th><th>≤60</th><th>≤72</th><th>≤84</th><th>≤96</th><th>≤108</th><th>≤120</th><th>≤132</th><th>≤144</th><th>≤156</th><th>≤168</th><th>≤180</th></tr>
+        <tr><th>Décote</th><td>3 %</td><td>6 %</td><td>9 %</td><td>12 %</td><td>16 %</td><td>20 %</td><td>28 %</td><td>33 %</td><td>38 %</td><td>43 %</td><td>48 %</td><td>53 %</td><td>58 %</td><td>64 %</td><td>70 %</td><td>76 %</td><td>82 %</td><td>88 %</td><td>94 %</td></tr>
+      </table></div>
+      <div class="tbl" style="margin-top:10px"><table>
+        <tr><th>Barème</th><th>2018</th><th>2019</th><th>2020</th><th>2021</th><th>2022</th><th>2023</th><th>2024</th><th>2025</th><th>2026</th></tr>
+        <tr><th>1er g taxé</th><td>120</td><td>117</td><td>138</td><td>133</td><td>128</td><td>123</td><td>118</td><td>113</td><td>108</td></tr>
+        <tr><th>Plafond</th><td>10 500</td><td>10 500</td><td>20 000</td><td>30 000</td><td>40 000</td><td>50 000</td><td>60 000</td><td>70 000</td><td>80 000</td></tr>
+      </table></div>
+      <p><b>Enseignement clé :</b> une sportive immatriculée en 2019 paie au pire 10 500 € × 47 % ≈ 4 900 € de malus, contre environ 17 000 € pour la même voiture de 2021. Les millésimes 2018–2019 sont le cœur de l'arbitrage.</p>
+      <h2>Frais par défaut</h2>
+      <div class="tbl"><table>
+        <tr><th></th><th>Allemagne</th><th>Suisse</th><th>Japon</th></tr>
+        <tr><th>Transport</th><td>900</td><td>400</td><td>2 500 (RoRo + assurance)</td></tr>
+        <tr><th>Agent / export</th><td>0</td><td>0</td><td>1 500</td></tr>
+        <tr><th>Transitaire, port</th><td>0</td><td>350</td><td>1 300</td></tr>
+        <tr><th>Homologation</th><td>150 (COC)</td><td>300</td><td>3 500 (RTI + normes)</td></tr>
+        <tr><th>Préparation</th><td>800</td><td>800</td><td>1 000</td></tr>
+        <tr><th>Immatriculation</th><td>300</td><td>300</td><td>300</td></tr>
+        <tr><th>Douane</th><td>0 %</td><td>0 % (origine UE)</td><td>10 %</td></tr>
+      </table></div>
+      <h2>Couverture du dernier scan</h2>
+      <div class="tbl"><table id="cov"></table></div>
+      <h2>Limites</h2>
+      <p>Les barèmes 2015–2017 sont des estimations (décote de 64 % et plus, donc un faible impact). Les prix de revente français viennent des annonces comparables, pas des prix de vente réels : retirez 3 à 5 % de marge de négociation. Confirmez toujours le malus final sur le simulateur officiel avant d'acheter. Le scan automatique lit les pages de résultats AutoScout24 (Allemagne, Autriche, Belgique, Italie, Espagne, Luxembourg, Pays-Bas) et les compare aux annonces françaises du même site. Mobile.de et La Centrale ne sont pas scannés (accès refusé aux robots). Les annonces japonaises sont relevées à la main et marquées « à vérifier ».</p>
+    </div>
+  </section>
+  </div>
+</div>
+<div class="toast" id="toast" hidden></div>

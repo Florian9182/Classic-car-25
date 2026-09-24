@@ -1,0 +1,367 @@
+{
+ "recherches": [
+  {
+   "label": "Porsche 911 (991.2 / 992)",
+   "make": "porsche",
+   "model": "911",
+   "annees": [
+    2017,
+    2019
+   ],
+   "prix_min": 50000,
+   "segment": "Sportive",
+   "masse": 1550,
+   "pages_eu": 10,
+   "pages_fr": 10,
+   "prix_max": 100000
+  },
+  {
+   "label": "Porsche 718 Cayman",
+   "make": "porsche",
+   "model": "718-cayman",
+   "annees": [
+    2017,
+    2019
+   ],
+   "prix_min": 35000,
+   "segment": "Sportive",
+   "masse": 1400,
+   "pages_eu": 10,
+   "pages_fr": 10,
+   "prix_max": 100000
+  },
+  {
+   "label": "Porsche 718 Boxster",
+   "make": "porsche",
+   "model": "boxster",
+   "annees": [
+    2017,
+    2019
+   ],
+   "prix_min": 35000,
+   "segment": "Sportive",
+   "masse": 1400,
+   "pages_eu": 10,
+   "pages_fr": 10,
+   "prix_max": 100000
+  },
+  {
+   "label": "Porsche Macan",
+   "make": "porsche",
+   "model": "macan",
+   "annees": [
+    2017,
+    2019
+   ],
+   "prix_min": 30000,
+   "segment": "Premium familial",
+   "masse": 1870,
+   "pages_eu": 10,
+   "pages_fr": 10,
+   "prix_max": 100000
+  },
+  {
+   "label": "Porsche Cayenne E-Hybrid",
+   "make": "porsche",
+   "model": "cayenne",
+   "annees": [
+    2019,
+    2021
+   ],
+   "prix_min": 35000,
+   "fuel": "2",
+   "energie": "PHEV",
+   "co2_defaut": 75,
+   "segment": "Premium familial",
+   "masse": 2300,
+   "pages_eu": 10,
+   "pages_fr": 10,
+   "prix_max": 100000
+  },
+  {
+   "label": "Mercedes-AMG C63",
+   "make": "mercedes-benz",
+   "model": "c-63-amg",
+   "annees": [
+    2017,
+    2019
+   ],
+   "prix_min": 30000,
+   "segment": "Sportive",
+   "masse": 1750,
+   "pages_eu": 10,
+   "pages_fr": 10,
+   "prix_max": 100000
+  },
+  {
+   "label": "Mercedes-AMG E63",
+   "make": "mercedes-benz",
+   "model": "e-63-amg",
+   "annees": [
+    2017,
+    2019
+   ],
+   "prix_min": 35000,
+   "segment": "Sportive",
+   "masse": 1950,
+   "pages_eu": 10,
+   "pages_fr": 10,
+   "prix_max": 100000
+  },
+  {
+   "label": "Mercedes-AMG GT",
+   "make": "mercedes-benz",
+   "model": "amg-gt",
+   "annees": [
+    2017,
+    2019
+   ],
+   "prix_min": 50000,
+   "segment": "Sportive",
+   "masse": 1650,
+   "pages_eu": 10,
+   "pages_fr": 10,
+   "prix_max": 100000
+  },
+  {
+   "label": "Mercedes GLE 350de / GLC 300e",
+   "make": "mercedes-benz",
+   "model": "gle-350",
+   "annees": [
+    2019,
+    2021
+   ],
+   "prix_min": 30000,
+   "fuel": "2",
+   "energie": "PHEV",
+   "co2_defaut": 30,
+   "segment": "Premium familial",
+   "masse": 2600,
+   "pages_eu": 10,
+   "pages_fr": 10,
+   "prix_max": 100000
+  },
+  {
+   "label": "BMW M2",
+   "make": "bmw",
+   "model": "m2",
+   "annees": [
+    2017,
+    2019
+   ],
+   "prix_min": 30000,
+   "segment": "Sportive",
+   "masse": 1550,
+   "pages_eu": 10,
+   "pages_fr": 10,
+   "prix_max": 100000
+  },
+  {
+   "label": "BMW M4",
+   "make": "bmw",
+   "model": "m4",
+   "annees": [
+    2017,
+    2019
+   ],
+   "prix_min": 30000,
+   "segment": "Sportive",
+   "masse": 1550,
+   "pages_eu": 10,
+   "pages_fr": 10,
+   "prix_max": 100000
+  },
+  {
+   "label": "BMW M5",
+   "make": "bmw",
+   "model": "m5",
+   "annees": [
+    2017,
+    2019
+   ],
+   "prix_min": 40000,
+   "segment": "Sportive",
+   "masse": 1900,
+   "pages_eu": 10,
+   "pages_fr": 10,
+   "prix_max": 100000
+  },
+  {
+   "label": "BMW X5 45e",
+   "make": "bmw",
+   "model": "x5",
+   "annees": [
+    2019,
+    2021
+   ],
+   "prix_min": 30000,
+   "fuel": "2",
+   "energie": "PHEV",
+   "co2_defaut": 40,
+   "segment": "Premium familial",
+   "masse": 2500,
+   "pages_eu": 10,
+   "pages_fr": 10,
+   "prix_max": 100000
+  },
+  {
+   "label": "Audi RS4",
+   "make": "audi",
+   "model": "rs4",
+   "annees": [
+    2017,
+    2019
+   ],
+   "prix_min": 30000,
+   "segment": "Sportive",
+   "masse": 1790,
+   "pages_eu": 10,
+   "pages_fr": 10,
+   "prix_max": 100000
+  },
+  {
+   "label": "Audi RS5",
+   "make": "audi",
+   "model": "rs5",
+   "annees": [
+    2017,
+    2019
+   ],
+   "prix_min": 30000,
+   "segment": "Sportive",
+   "masse": 1730,
+   "pages_eu": 10,
+   "pages_fr": 10,
+   "prix_max": 100000
+  },
+  {
+   "label": "Audi R8",
+   "make": "audi",
+   "model": "r8",
+   "annees": [
+    2016,
+    2019
+   ],
+   "prix_min": 60000,
+   "segment": "Sportive",
+   "masse": 1650,
+   "pages_eu": 10,
+   "pages_fr": 10,
+   "prix_max": 100000
+  },
+  {
+   "label": "Audi Q7 55 TFSI e",
+   "make": "audi",
+   "model": "q7",
+   "annees": [
+    2019,
+    2021
+   ],
+   "prix_min": 30000,
+   "fuel": "2",
+   "energie": "PHEV",
+   "co2_defaut": 65,
+   "segment": "Premium familial",
+   "masse": 2450,
+   "pages_eu": 10,
+   "pages_fr": 10,
+   "prix_max": 100000
+  },
+  {
+   "label": "Volvo XC90 T8",
+   "make": "volvo",
+   "model": "xc90",
+   "annees": [
+    2019,
+    2021
+   ],
+   "prix_min": 30000,
+   "fuel": "2",
+   "energie": "PHEV",
+   "co2_defaut": 60,
+   "segment": "Premium familial",
+   "masse": 2300,
+   "pages_eu": 10,
+   "pages_fr": 10,
+   "prix_max": 100000
+  },
+  {
+   "label": "Range Rover Sport P400e",
+   "make": "land-rover",
+   "model": "range-rover-sport",
+   "annees": [
+    2019,
+    2021
+   ],
+   "prix_min": 30000,
+   "fuel": "2",
+   "energie": "PHEV",
+   "co2_defaut": 75,
+   "segment": "Premium familial",
+   "masse": 2500,
+   "pages_eu": 10,
+   "pages_fr": 10,
+   "prix_max": 100000
+  },
+  {
+   "label": "Ford Mustang",
+   "make": "ford",
+   "model": "mustang",
+   "annees": [
+    2017,
+    2019
+   ],
+   "prix_min": 25000,
+   "segment": "Sportive",
+   "masse": 1750,
+   "pages_eu": 10,
+   "pages_fr": 10,
+   "prix_max": 100000
+  },
+  {
+   "label": "Toyota Supra",
+   "make": "toyota",
+   "model": "supra",
+   "annees": [
+    2019,
+    2020
+   ],
+   "prix_min": 35000,
+   "segment": "JDM",
+   "masse": 1500,
+   "pages_eu": 10,
+   "pages_fr": 10,
+   "prix_max": 100000
+  },
+  {
+   "label": "Nissan GT-R",
+   "make": "nissan",
+   "model": "gt-r",
+   "annees": [
+    2012,
+    2019
+   ],
+   "prix_min": 50000,
+   "segment": "JDM",
+   "masse": 1760,
+   "pages_eu": 10,
+   "pages_fr": 10,
+   "prix_max": 100000
+  },
+  {
+   "label": "Alpine A110",
+   "make": "alpine",
+   "model": "a110",
+   "annees": [
+    2018,
+    2019
+   ],
+   "prix_min": 35000,
+   "segment": "Sportive",
+   "masse": 1100,
+   "pages_eu": 10,
+   "pages_fr": 10,
+   "prix_max": 100000
+  }
+ ]
+}
