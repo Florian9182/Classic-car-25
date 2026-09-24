@@ -39,4 +39,3 @@ jobs:
           MODE: ${{ github.event.inputs.mode || 'scan' }}
           PARAMS: ${{ github.event.inputs.params || '{}' }}
         run: python3 run.py
-
