@@ -1,0 +1,40 @@
+name: Recherche Radar Import
+on:
+  workflow_dispatch: {}
+  schedule:
+    - cron: "0 5 * * 1"   # chaque lundi, 7 h (heure de Paris en été)
+concurrency: { group: scan, cancel-in-progress: false }
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - uses: actions/setup-node@v4
+        with: { node-version: "22" }
+      - name: Taux BCE
+        run: |
+          python3 - <<'PY'
+          import urllib.request,re,datetime
+          x=urllib.request.urlopen("https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml",timeout=30).read().decode()
+          chf=float(re.search(r"currency='CHF' rate='([\d.]+)'",x).group(1)); jpy=float(re.search(r"currency='JPY' rate='([\d.]+)'",x).group(1))
+          d=re.search(r"time='([\d-]+)'",x).group(1)
+          s=open('build_data.js').read()
+          s=re.sub(r"const taux=\{[^}]*\};",f"const taux={{CHF:{1/chf},JPY:{1/jpy},date:'{d}',source:'BCE'}};",s)
+          open('build_data.js','w').write(s); print('CHF',chf,'JPY',jpy,d)
+          PY
+      - name: Scan AutoScout24 (pages de résultats)
+        run: python3 scan_eu.py config_eu.json raw.json
+      - name: Comparables et marges
+        run: |
+          python3 match.py raw.json scan.json
+          node build_data.js scan.json data.json manuel.json
+          pip install pillow >/dev/null 2>&1 || true
+          chmod +x build_site.sh && ./build_site.sh
+      - name: Publication
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: npx --yes wrangler@4 pages deploy site --project-name radar-cc25 --branch main --commit-dirty=true
