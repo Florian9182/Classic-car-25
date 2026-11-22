@@ -39,3 +39,15 @@ jobs:
           MODE: ${{ github.event.inputs.mode || 'scan' }}
           PARAMS: ${{ github.event.inputs.params || '{}' }}
         run: python3 run.py
+  keepalive:
+    # Empêche GitHub de désactiver le radar après 60 jours sans commit :
+    # chaque matin, le workflow se « réactive » lui-même, ce qui remet le compteur à zéro.
+    if: github.event_name == 'schedule'
+    runs-on: ubuntu-latest
+    permissions:
+      actions: write
+    steps:
+      - name: Garder le radar actif
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api -X PUT "repos/${{ github.repository }}/actions/workflows/scan.yml/enable"
